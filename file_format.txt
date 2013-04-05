@@ -1,0 +1,61 @@
+uint8[] SIGNATURE = { 0x46, 0x4F, 0x41, 0x52, 0x54, 0x00, 0x17, 0x14 };
+uint8   VERSION
+
+/* version 1 RC */
+
+uint16  MAP_PID
+bool    HEXES_RELATIVE
+uint32  DEFINITIONS_COUNT
+(
+	uint16 ITEM_PID
+
+	uint32 HEXES_COUNT
+	(
+		int16 HEX_X
+		int16 HEX_Y
+	)
+
+	uint8 ADDONS_COUNT
+	(
+		uint8   ADDON_ID
+		uint32  ADDON_DATA_LENGTH
+		uint8[] ADDON_DATA
+	)
+)
+
+ADDON_FLAGS, ID:1
+
+	// OVERWRITE mode
+	uint32 FLAGS
+
+	// SET/UNSET mode
+	uint32 FLAGS_SET
+	uint32 FLAGS_UNSET
+
+ADDON_LIGHT, ID:2
+
+	uint8  FLAGS
+	uint32 COLOR
+	int8   INTENSITY
+	uint8  RADIUS
+
+ADDON_IMAGE, ID:3
+
+	uint16  PICMAP_NAME_LENGTH
+	uint8[] PICMAP_NAME
+
+	uint16  PICINV_NAME_LENGTH
+	uint8[] PICINV_NAME
+
+ADDON_LEXEM, ID:4
+
+	uint16  LEXEM_LENGTH
+	uint8[] LEXEM
+
+ADDON_STACK, ID:5
+
+	uint32 COUNT
+
+ADDON_TEST, ID:255
+
+	no data saved
